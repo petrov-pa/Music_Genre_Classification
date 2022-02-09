@@ -9,12 +9,16 @@ from model import get_model
 
 def run():
     file = os.listdir('./music')
-    assert file is False, 'Отсутствуют файлы в папке music'
+    if file is False:
+        print('Отсутствуют файлы в папке music')
+        pass
     genres = {0: 'country', 1: 'hiphop', 2: 'classical', 3: 'metal', 4: 'jazz',
               5: 'blues', 6: 'pop', 7: 'rock', 8: 'reggae', 9: 'disco'}
     x_data = []
     for audio in file:
-        assert re.search('[^.]*$', audio)[0] not in ['au', 'wav', 'mp3'], 'Неизвестный формат файла'
+        if re.search('[^.]*$', audio)[0] not in ['au', 'wav', 'mp3']:
+            print('Неизвестный формат файла')
+            pass
         y, sr = librosa.load(os.path.join('./music/{}'.format(audio)), mono=True, duration=30)
         x_data.append(get_features(y, sr))
     with open('./models/Scaler.pickle', 'rb') as f:
