@@ -1,0 +1,18 @@
+<html>
+    <body>
+      <h1>Приветствую!</h1>
+      <h2>Я могу определить музыкальный жанр с 7 нот</h2>
+    </body>
+
+    <form method="POST" action="/" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {{ form.file.label }} {{ form.file(size=20) }}
+        <input type="submit" value="Определить">
+    </form>
+
+    <body>
+        <p>Жанр: {{ name }}</p>
+    <body>
+</html>
+
+
