@@ -13,12 +13,26 @@
 ![image](https://user-images.githubusercontent.com/64748758/131314684-7b7016d9-943d-4bf4-9307-418aad17469a.png)
 
 ## Работа приложения:
-
+#### Запуск в Google Colab:
 ```ini
-classes= 80
-train  = <replace with your path>/trainvalno5k.txt
-valid = <replace with your path>/testdev2017.txt
-names = data/coco.names
-backup = backup
-eval=coco
+!git clone https://github.com/petrov-pa/Music_Genre_Classification.git
+%cd ./Music_Genre_Classification
+pip install -r requirements.txt
+!python main.py
+```
+Перед запуском необходимо добавить аудио-файлы в папку music.
+Результат распознавания записывается в файл result.txt
+#### Запуск через Flask:
+```ini
+git clone https://github.com/petrov-pa/Music_Genre_Classification.git
+cd ./Music_Genre_Classification
+pip install -r requirements.txt
+python run.py
+```
+#### Запуск через Docker:
+```ini
+git clone https://github.com/petrov-pa/Music_Genre_Classification.git
+cd ./Music_Genre_Classification
+pip install -r requirements.txt
+docker-compose up --build
 ```
